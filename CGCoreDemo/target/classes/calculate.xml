@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<!-- Enable Annotation based configuration -->
+	<context:annotation-config />
+
+	<bean id="item1" class="com.spring.cg.Items">
+		<property name="name" value="Laptop"/>
+		<property name="price" value="150000"/>
+	</bean>
+	
+	<bean id="item2" class="com.spring.cg.Items">
+		<property name="name" value="Television"/>
+		<property name="price" value="15000"/>
+	</bean>
+	
+	<bean id="item3" class="com.spring.cg.Items">
+		<property name="name" value="Router"/>
+		<property name="price" value="3000"/>
+	</bean>
+	
+	<bean id="item4" class="com.spring.cg.Items">
+		<property name="name" value="Speakers"/>
+		<property name="price" value="1500"/>
+	</bean>
+	
+	<bean id="item5" class="com.spring.cg.Items">
+		<property name="name" value="XBOX One S"/>
+		<property name="price" value="45000"/>
+	</bean>
+	
+	<bean id="order1" class="com.spring.cg.Orders" autowire="byType">
+		<property name="orderId" value="50094"></property>
+		<property name="item">
+		<list> 
+  			<ref bean="item1"/>
+  			<ref bean="item2"/>
+  			<ref bean="item3"/>
+  			<ref bean="item4"/>
+		</list>
+		</property>
+	</bean>
+	
+	<bean id="order2" class="com.spring.cg.Orders" autowire="byType">
+		<property name="orderId" value="50018"></property>
+		<property name="item">
+		<list> 
+  			<ref bean="item1"/>
+  			<ref bean="item3"/>
+  			<ref bean="item5"/>
+		</list>
+		</property>
+	</bean>
+	
+	<bean id="order3" class="com.spring.cg.Orders" autowire="byType">
+		<property name="orderId" value="50090"></property>
+		<property name="item">
+		<list> 
+  			<ref bean="item3"/>
+  			<ref bean="item4"/>
+  			<ref bean="item5"/>
+		</list>
+		</property>
+	</bean>
+</beans>
